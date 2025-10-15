@@ -12,7 +12,8 @@ class OurTeamController extends Controller
      */
     public function index()
     {
-        //
+        $teams = OurTeam::latest('id')->paginate(10);
+        return view('admin.teams.index', compact('teams'));
     }
 
     /**

@@ -12,7 +12,8 @@ class CompanyStatisticController extends Controller
      */
     public function index()
     {
-        //
+        $statistics = CompanyStatistic::latest('id')->paginate(10);
+        return view('admin.statistics.index', compact('statistics'));
     }
 
     /**

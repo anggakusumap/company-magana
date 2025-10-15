@@ -12,7 +12,8 @@ class OurPrincipleController extends Controller
      */
     public function index()
     {
-        //
+        $our_principles = OurPrinciple::latest('id')->paginate(10);
+        return view('admin.our_principles.index', compact('our_principles'));
     }
 
     /**
