@@ -40,10 +40,10 @@ class ProjectClientController extends Controller
                 $validated['logo'] = $logoPath;
             }
 
-            $newPrinciple = OurPrinciple::create($validated);
+            OurPrinciple::create($validated);
         });
 
-        return redirect()->route('admin.principles.index');
+        return redirect()->route('admin.clients.index');
     }
 
     /**
@@ -57,7 +57,7 @@ class ProjectClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProjectClient $projectClient)
+    public function show(ProjectClient $client)
     {
         //
     }
@@ -65,7 +65,7 @@ class ProjectClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProjectClient $projectClient)
+    public function edit(ProjectClient $client)
     {
         //
     }
@@ -73,7 +73,7 @@ class ProjectClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProjectClient $projectClient)
+    public function update(Request $request, ProjectClient $client)
     {
         //
     }
@@ -81,8 +81,12 @@ class ProjectClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProjectClient $projectClient)
+    public function destroy(ProjectClient $client)
     {
-        //
+        DB::transaction(function () use ($client) {
+            $client->delete();
+        });
+
+        return redirect()->route('admin.clients.index');
     }
 }

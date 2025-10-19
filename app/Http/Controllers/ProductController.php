@@ -33,7 +33,7 @@ class ProductController extends Controller
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            $newProduct = Product::create($validated);
+            Product::create($validated);
         });
 
         return redirect()->route('admin.products.index');
@@ -76,6 +76,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        DB::transaction(function () use ($product) {
+            $product->delete();
+        });
+
+        return redirect()->route('admin.products.index');
     }
 }

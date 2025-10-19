@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTestimonialRequest;
 use App\Models\ProjectClient;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestimonialController extends Controller
 {
@@ -64,6 +65,10 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
-        //
+        DB::transaction(function () use ($testimonial) {
+            $testimonial->delete();
+        });
+
+        return redirect()->route('admin.testimonials.index');
     }
 }

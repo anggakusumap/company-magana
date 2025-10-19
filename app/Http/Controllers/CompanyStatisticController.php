@@ -34,7 +34,7 @@ class CompanyStatisticController extends Controller
                 $validated['icon'] = $iconPath;
             }
 
-            $newDataRecord = CompanyStatistic::create($validated);
+            CompanyStatistic::create($validated);
         });
 
         return redirect()->route('admin.statistics.index');
@@ -51,7 +51,7 @@ class CompanyStatisticController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CompanyStatistic $companyStatistic)
+    public function show(CompanyStatistic $statistic)
     {
         //
     }
@@ -59,7 +59,7 @@ class CompanyStatisticController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CompanyStatistic $companyStatistic)
+    public function edit(CompanyStatistic $statistic)
     {
         //
     }
@@ -67,7 +67,7 @@ class CompanyStatisticController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CompanyStatistic $companyStatistic)
+    public function update(Request $request, CompanyStatistic $statistic)
     {
         //
     }
@@ -75,8 +75,12 @@ class CompanyStatisticController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CompanyStatistic $companyStatistic)
+    public function destroy(CompanyStatistic $statistic)
     {
-        //
+        DB::transaction(function () use ($statistic) {
+            $statistic->delete();
+        });
+
+        return redirect()->route('admin.statistics.index');
     }
 }
