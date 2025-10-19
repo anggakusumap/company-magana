@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAboutRequest;
+use App\Http\Requests\UpdateAboutRequest;
 use App\Models\CompanyAbout;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CompanyAboutController extends Controller
@@ -16,6 +16,51 @@ class CompanyAboutController extends Controller
     {
         $abouts = CompanyAbout::latest('id')->paginate(10);
         return view('admin.abouts.index', compact('abouts'));
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(CompanyAbout $about)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(CompanyAbout $about)
+    {
+        return view('admin.abouts.edit', compact('about'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateAboutRequest $request, CompanyAbout $about)
+    {
+        DB::transaction(function () use ($request, $about) {
+            $validated = $request->validated();
+
+            if ($request->hasFile('thumbnail')) {
+                $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
+                $validated['thumbnail'] = $thumbnailPath;
+            }
+
+            $about->update($validated);
+
+            if (!empty($validated['keypoints'])) {
+                $about->keypoints()->delete();
+                foreach ($validated['keypoints'] as $keypoint) {
+                    $about->keypoints()->create([
+                        'keypoint' => $keypoint,
+                    ]);
+                }
+            }
+        });
+
+
+        return redirect()->route('admin.abouts.index');
     }
 
     /**
@@ -52,30 +97,6 @@ class CompanyAboutController extends Controller
     public function create()
     {
         return view('admin.abouts.create');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(CompanyAbout $about)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CompanyAbout $about)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, CompanyAbout $about)
-    {
-        //
     }
 
     /**

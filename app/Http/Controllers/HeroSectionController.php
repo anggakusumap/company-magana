@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreHeroSectionRequest;
+use App\Http\Requests\UpdateHeroSectionRequest;
 use App\Models\HeroSection;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HeroSectionController extends Controller
@@ -16,6 +16,41 @@ class HeroSectionController extends Controller
     {
         $hero_sections = HeroSection::latest('id')->paginate(10);
         return view('admin.hero_sections.index', compact('hero_sections'));
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(HeroSection $hero_section)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(HeroSection $hero_section)
+    {
+        return view('admin.hero_sections.edit', compact('hero_section'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateHeroSectionRequest $request, HeroSection $hero_section)
+    {
+        DB::transaction(function () use ($request, $hero_section) {
+            $validated = $request->validated();
+
+            if ($request->hasFile('banner')) {
+                $bannerPath = $request->file('banner')->store('banners', 'public');
+                $validated['banner'] = $bannerPath;
+            }
+
+            $hero_section->update($validated);
+        });
+
+        return redirect()->route('admin.hero_sections.index');
     }
 
     /**
@@ -46,30 +81,6 @@ class HeroSectionController extends Controller
     public function create()
     {
         return view('admin.hero_sections.create');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(HeroSection $hero_section)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(HeroSection $hero_section)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, HeroSection $hero_section)
-    {
-        //
     }
 
     /**
