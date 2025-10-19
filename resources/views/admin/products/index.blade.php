@@ -19,7 +19,7 @@
                     <div class="item-card flex flex-row justify-between items-center">
                         <div class="flex flex-row items-center gap-x-3">
                             <img src="{{Storage::url($product->thumbnail)}}"
-                                 alt="thumbnail_product_magana_{{$product->client->name}}"
+                                 alt="thumbnail_product_magana_{{$product->name}}"
                                  class="rounded-2xl object-cover w-[90px] h-[90px]">
                             <div class="flex flex-col">
                                 <h3 class="text-indigo-950 text-xl font-bold">{{$product->name}}</h3>

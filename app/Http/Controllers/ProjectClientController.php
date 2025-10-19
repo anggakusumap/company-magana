@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClientRequest;
-use App\Models\OurPrinciple;
 use App\Models\ProjectClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +39,7 @@ class ProjectClientController extends Controller
                 $validated['logo'] = $logoPath;
             }
 
-            OurPrinciple::create($validated);
+            ProjectClient::create($validated);
         });
 
         return redirect()->route('admin.clients.index');

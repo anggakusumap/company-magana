@@ -39,7 +39,7 @@ class OurPrincipleController extends Controller
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            $newPrinciple = OurPrinciple::create($validated);
+            OurPrinciple::create($validated);
         });
 
         return redirect()->route('admin.principles.index');

@@ -20,20 +20,31 @@ class TestimonialController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreTestimonialRequest $request)
+    {
+        DB::transaction(function () use ($request) {
+            $validated = $request->validated();
+
+            if ($request->hasFile('thumbnail')) {
+                $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
+                $validated['thumbnail'] = $thumbnailPath;
+            }
+
+            Testimonial::create($validated);
+        });
+
+        return redirect()->route('admin.testimonials.index');
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $clients = ProjectClient::orderByDesc('id')->get();
         return view('admin.testimonials.create', compact('clients'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreTestimonialRequest $request)
-    {
-        //
     }
 
     /**

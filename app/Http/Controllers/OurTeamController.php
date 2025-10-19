@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTeamRequest;
-use App\Models\OurPrinciple;
 use App\Models\OurTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,7 +34,7 @@ class OurTeamController extends Controller
                 $validated['avatar'] = $avatarPath;
             }
 
-            OurPrinciple::create($validated);
+            OurTeam::create($validated);
         });
 
         return redirect()->route('admin.teams.index');
