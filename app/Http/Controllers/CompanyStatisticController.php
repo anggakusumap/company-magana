@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStatisticRequest;
 use App\Models\CompanyStatistic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CompanyStatisticController extends Controller
 {
@@ -18,20 +19,33 @@ class CompanyStatisticController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('admin.statistics.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreStatisticRequest $request)
     {
         // Insert to Database
-        
+        // Closure-based transaction
+
+        DB::transaction(function () use ($request) {
+            $validated = $request->validated();
+
+            if ($request->hasFile('icon')) {
+                $iconPath = $request->file('icon')->store('icons', 'public');
+                $validated['icon'] = $iconPath;
+            }
+
+            $newDataRecord = CompanyStatistic::create($validated);
+        });
+
+        return redirect()->route('admin.statistics.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.statistics.create');
     }
 
     /**

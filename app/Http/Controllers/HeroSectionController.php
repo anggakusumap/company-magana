@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreHeroSectionRequest;
 use App\Models\HeroSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HeroSectionController extends Controller
 {
@@ -18,19 +19,33 @@ class HeroSectionController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreHeroSectionRequest $request)
+    {
+        // Insert to Database
+        // Closure-based transaction
+
+        DB::transaction(function () use ($request) {
+            $validated = $request->validated();
+
+            if ($request->hasFile('banner')) {
+                $bannerPath = $request->file('banner')->store('banners', 'public');
+                $validated['banner'] = $bannerPath;
+            }
+
+            $newHeroSection = HeroSection::create($validated);
+        });
+
+        return redirect()->route('admin.hero_sections.index');
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         return view('admin.hero_sections.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreHeroSectionRequest $request)
-    {
-        //
     }
 
     /**

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTeamRequest;
+use App\Models\OurPrinciple;
 use App\Models\OurTeam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OurTeamController extends Controller
 {
@@ -18,19 +20,33 @@ class OurTeamController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreTeamRequest $request)
+    {
+        // Insert to Database
+        // Closure-based transaction
+
+        DB::transaction(function () use ($request) {
+            $validated = $request->validated();
+
+            if ($request->hasFile('avatar')) {
+                $avatarPath = $request->file('avatar')->store('avatars', 'public');
+                $validated['avatar'] = $avatarPath;
+            }
+
+            $newTeam = OurPrinciple::create($validated);
+        });
+
+        return redirect()->route('admin.teams.index');
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         return view('admin.teams.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreTeamRequest $request)
-    {
-        //
     }
 
     /**
