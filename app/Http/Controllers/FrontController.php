@@ -22,4 +22,11 @@ class FrontController extends Controller
 
         return view('front.index', compact('statistics', 'principles', 'products', 'teams', 'testimonials', 'hero_sections'));
     }
+
+    public function team()
+    {
+        $statistics = CompanyStatistic::latest('id')->take(4)->get();
+        $teams = OurTeam::latest('id')->take(7)->get();
+        return view('front.team', compact('teams', 'statistics'));
+    }
 }
