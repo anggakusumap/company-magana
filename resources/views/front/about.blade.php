@@ -40,7 +40,12 @@
                                         project. Set the standard for excellence world</p>
                                 </div>
                             @empty
-                                <p>No keypoints yet.</p>
+                                <div class="flex items-center gap-[10px]">
+                                    <div class="w-6 h-6 flex shrink-0">
+                                        <img src="assets/icons/tick-circle.svg" alt="icon">
+                                    </div>
+                                    <p class="leading-[26px] font-semibold">Goals</p>
+                                </div>
                             @endforelse
                         </div>
                     </div>

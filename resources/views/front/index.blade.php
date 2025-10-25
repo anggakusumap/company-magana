@@ -17,7 +17,11 @@
                     </div>
                     <div class="flex flex-col gap-[10px]">
                         <h1 class="font-extrabold text-[50px] leading-[65px] max-w-[536px]">{{$hero->heading}}</h1>
-                        <p class="text-cp-light-grey leading-[30px] max-w-[437px]">{{$hero->subheading}}</p>
+                        <p class="text-cp-light-grey leading-[30px] max-w-[437px]">PT. Magana Dana Mahanta is a trusted
+                            Indonesian export company based in Bali, specializing in delivering high-quality banana
+                            leaves, tropical fruits, and handmade dolls to international markets. With a strong
+                            commitment to sustainability, quality, and authenticity, we proudly connect Indonesia’s
+                            natural and creative products with buyers around the world.</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <a href=""
@@ -44,63 +48,83 @@
         @endforelse
     </div>
 
-    <div id="Clients" class="container max-w-[1130px] mx-auto flex flex-col justify-center text-center gap-5 mt-20">
-        <h2 class="font-bold text-lg">Trusted by 500+ Top Leaders Worldwide</h2>
-        <div class="logo-container flex flex-wrap gap-5 justify-center">
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-54.svg')}}" class="object-contain w-full h-full" alt="logo">
-                </div>
+    <div id="WhatWeDo" class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-20">
+        <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-[14px]">
+                <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
+                    Our Work
+                </p>
+                <h2 class="font-bold text-4xl leading-[45px]">What We Do</h2>
             </div>
+            <a href="{{ route('front.index') }}"
+               class="bg-cp-black p-[14px_20px] w-fit rounded-xl font-bold text-white hover:bg-cp-dark-blue transition-all duration-300">
+                Explore More
+            </a>
+        </div>
+
+        <div
+            class="awards-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
+
+            <!-- Card 1 -->
             <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-52.svg')}}" class="object-contain w-full h-full" alt="logo">
+                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
+                <div class="w-[55px] h-[55px] flex shrink-0">
+                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
                 </div>
+                <hr class="border-[#E8EAF2]">
+                <p class="font-bold text-xl leading-[30px]">Sustainable Banana Leaf Export</p>
+                <hr class="border-[#E8EAF2]">
+                <p class="text-cp-light-grey">
+                    We export fresh, high-quality banana leaves sourced from Bali’s local farmers, ensuring eco-friendly
+                    harvesting, consistent quality, and reliable global delivery.
+                </p>
             </div>
+
+            <!-- Card 2 -->
             <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-55.svg')}}" class="object-contain w-full h-full" alt="logo">
+                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
+                <div class="w-[55px] h-[55px] flex shrink-0">
+                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
                 </div>
+                <hr class="border-[#E8EAF2]">
+                <p class="font-bold text-xl leading-[30px]">Handcrafted Doll Production</p>
+                <hr class="border-[#E8EAF2]">
+                <p class="text-cp-light-grey">
+                    Each doll is uniquely handcrafted by Balinese artisans, blending tradition, creativity, and
+                    sustainable materials to share Bali’s cultural artistry with the world.
+                </p>
             </div>
+
+            <!-- Card 3 -->
             <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-44.svg')}}" class="object-contain w-full h-full" alt="logo">
+                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
+                <div class="w-[55px] h-[55px] flex shrink-0">
+                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
                 </div>
+                <hr class="border-[#E8EAF2]">
+                <p class="font-bold text-xl leading-[30px]">Quality Control & Packaging</p>
+                <hr class="border-[#E8EAF2]">
+                <p class="text-cp-light-grey">
+                    Our team ensures every product meets export standards with strict quality checks, sustainable
+                    packaging, and preservation methods that protect freshness and authenticity.
+                </p>
             </div>
+
+            <!-- Card 4 -->
             <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-51.svg')}}" class="object-contain w-full h-full" alt="logo">
+                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
+                <div class="w-[55px] h-[55px] flex shrink-0">
+                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
                 </div>
+                <hr class="border-[#E8EAF2]">
+                <p class="font-bold text-xl leading-[30px]">Global Trade & Partnership</p>
+                <hr class="border-[#E8EAF2]">
+                <p class="text-cp-light-grey">
+                    We collaborate with distributors and importers worldwide, providing transparent trade processes,
+                    reliable logistics, and flexible partnership opportunities rooted in integrity.
+                </p>
             </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-55.svg')}}" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-52.svg')}}" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-54.svg')}}" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="{{asset('assets/logo/logo-51.svg')}}" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
+
         </div>
     </div>
 
@@ -140,34 +164,14 @@
         </div>
     </div>
 
-    <div id="Stats" class="bg-cp-black w-full mt-20">
-        <div class="container max-w-[1000px] mx-auto py-10">
-            <div class="flex flex-wrap items-center justify-between p-[10px]">
-                @forelse($statistics as $statistic)
-                    <div class="card w-[200px] flex flex-col items-center gap-[10px] text-center">
-                        <div class="w-[55px] h-[55px] flex shrink-0 overflow-hidden">
-                            <img src="{{Storage::url($statistic->icon)}}"
-                                 class="object-contain w-full h-full"
-                                 alt="icon">
-                        </div>
-                        <p class="text-cp-pale-orange font-bold text-4xl leading-[54px]">{{$statistic->goal}}</p>
-                        <p class="text-cp-light-grey">{{$statistic->name}}</p>
-                    </div>
-                @empty
-                    <p>No statistics data yet.</p>
-                @endforelse
-            </div>
-        </div>
-    </div>
-
     <div id="Products" class="container max-w-[1130px] mx-auto flex flex-col gap-20 mt-20">
         @forelse($products as $product)
             <div class="product flex flex-wrap justify-center items-center gap-[60px] even:flex-row-reverse">
-                <div class="w-[470px] h-[550px] flex shrink-0 overflow-hidden">
+                <div class="w-[470px] h-[520px] flex shrink-0 overflow-hidden">
                     <img src="{{Storage::url($product->thumbnail)}}" class="w-full h-full object-contain"
                          alt="thumbnail">
                 </div>
-                <div class="flex flex-col gap-[30px] py-[50px] h-fit max-w-[500px]">
+                <div class="flex flex-col gap-[30px] py-[10px] h-fit max-w-[500px]">
                     <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
                         {{$product->tagline}}</p>
                     <div class="flex flex-col gap-[10px]">
@@ -182,60 +186,6 @@
         @empty
             <p>No products data yet.</p>
         @endforelse
-    </div>
-
-    <div id="Teams" class="bg-[#F6F7FA] w-full py-20 px-[10px] mt-20">
-        <div class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] items-center">
-            <div class="flex flex-col gap-[14px] items-center">
-                <p class="badge w-fit bg-cp-light-blue text-white p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                    OUR
-                    POWERFUL TEAM</p>
-                <h2 class="font-bold text-4xl leading-[45px] text-center">We Share Same Dreams <br> Change The World
-                </h2>
-            </div>
-            <div
-                class="teams-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
-
-                @forelse($teams as $team)
-                    <div
-                        class="card bg-white flex flex-col h-full justify-center items-center p-[30px] px-[29px] gap-[30px] rounded-[20px] border border-white hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300">
-                        <div
-                            class="w-[100px] h-[100px] flex shrink-0 items-center justify-center rounded-full bg-[linear-gradient(150.55deg,_#007AFF_8.72%,_#312ECB_87.11%)]">
-                            <div class="w-[90px] h-[90px] rounded-full overflow-hidden">
-                                <img src="{{Storage::url($team->avatar)}}"
-                                     class="object-cover w-full h-full object-center"
-                                     alt="photo">
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-1 text-center">
-                            <p class="font-bold text-xl leading-[30px]">{{$team->name}}</p>
-                            <p class="text-cp-light-grey">{{$team->occupation}}</p>
-                        </div>
-                        <div class="flex items-center justify-center gap-[10px]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="{{asset('assets/icons/global.svg')}}" alt="icon">
-                            </div>
-                            <p class="text-cp-dark-blue font-semibold">{{$team->location}}</p>
-                        </div>
-                    </div>
-
-                @empty
-                    <p>No teams data yet.</p>
-                @endforelse
-                <a href={{route('front.team')}} class="view-all-card">
-                    <div
-                        class="card bg-white flex flex-col h-full justify-center items-center p-[30px] gap-[30px] rounded-[20px] border border-white hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300">
-                        <div class="w-[60px] h-[60px] flex shrink-0">
-                            <img src="{{asset('assets/icons/profile-2user.svg')}}" alt="icon">
-                        </div>
-                        <div class="flex flex-col gap-1 text-center">
-                            <p class="font-bold text-xl leading-[30px]">View All</p>
-                            <p class="text-cp-light-grey">Our Great People</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
     </div>
 
     <div id="Testimonials" class="w-full flex flex-col gap-[50px] items-center mt-20">
@@ -307,146 +257,154 @@
         </div>
     </div>
 
-    <div id="Awards" class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-20">
-        <div class="flex items-center justify-between">
-            <div class="flex flex-col gap-[14px]">
-                <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                    OUR AWARDS</p>
-                <h2 class="font-bold text-4xl leading-[45px]">We’ve Dedicated Our<br>Best Team Efforts</h2>
-            </div>
-            <a href="" class="bg-cp-black p-[14px_20px] w-fit rounded-xl font-bold text-white">Explore More</a>
-        </div>
-        <div
-            class="awards-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{asset('assets/icons/cup-blue.svg')}}" alt="icon">
-                </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Solid Fundamental Crafter Async</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">Bali, 2020</p>
-            </div>
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{asset('assets/icons/cup-blue.svg')}}" alt="icon">
-                </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Most Crowded Yet Harmony Place</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">Shanghai, 2021</p>
-            </div>
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{asset('assets/icons/cup-blue.svg')}}" alt="icon">
-                </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Small Things Made Much Big Impacts</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">Zurich, 2022</p>
-            </div>
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{asset('assets/icons/cup-blue.svg')}}" alt="icon">
-                </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Teamwork and Solidarity</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">Bandung, 2023</p>
-            </div>
-        </div>
-    </div>
+    {{--    <div id="FAQ" class="bg-[#F6F7FA] w-full py-20 px-[10px] mt-20 -mb-20">--}}
+    {{--        <div class="container max-w-[1000px] mx-auto">--}}
+    {{--            <div class="flex flex-col lg:flex-row gap-[50px] sm:gap-[70px] items-center">--}}
+    {{--                <div class="flex flex-col gap-[30px]">--}}
+    {{--                    <div class="flex flex-col gap-[10px]">--}}
+    {{--                        <h2 class="font-bold text-4xl leading-[45px]">Frequently Asked Questions</h2>--}}
+    {{--                    </div>--}}
+    {{--                    <a--}}
+    {{--                        href="{{route('front.appointment')}}"--}}
+    {{--                        class="p-5 bg-cp-black rounded-xl text-white w-fit font-bold"--}}
+    {{--                    >Contact Us</a--}}
+    {{--                    >--}}
+    {{--                </div>--}}
 
-    <div id="FAQ" class="bg-[#F6F7FA] w-full py-20 px-[10px] mt-20 -mb-20">
-        <div class="container max-w-[1000px] mx-auto">
-            <div class="flex flex-col lg:flex-row gap-[50px] sm:gap-[70px] items-center">
-                <div class="flex flex-col gap-[30px]">
-                    <div class="flex flex-col gap-[10px]">
-                        <h2 class="font-bold text-4xl leading-[45px]">Frequently Asked Questions</h2>
-                    </div>
-                    <a href="{{route('front.appointment')}}"
-                       class="p-5 bg-cp-black rounded-xl text-white w-fit font-bold">Contact Us</a>
-                </div>
-                <div class="flex flex-col gap-[30px] sm:w-[603px] shrink-0">
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">
-                        <button class="accordion-button flex justify-between gap-1 items-center"
-                                data-accordion="accordion-faq-1">
-                            <span class="font-bold text-lg leading-[27px] text-left">Can installments be beneficial for both?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                     class="transition-all duration-300"
-                                     alt="icon">
-                            </div>
-                        </button>
-                        <div id="accordion-faq-1" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">We want to protect our and clients
-                                assets
-                                to the max level so that we chose the best one from Jakarta, Indonesia will also protect
-                                post building finished completed ahead one.</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">
-                        <button class="accordion-button flex justify-between gap-1 items-center"
-                                data-accordion="accordion-faq-2">
-                            <span class="font-bold text-lg leading-[27px] text-left">What kind of framework you popular with?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                     class="transition-all duration-300"
-                                     alt="icon">
-                            </div>
-                        </button>
-                        <div id="accordion-faq-2" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">We want to protect our and clients
-                                assets
-                                to the max level so that we chose the best one from Jakarta, Indonesia will also protect
-                                post building finished completed ahead one.</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">
-                        <button class="accordion-button flex justify-between gap-1 items-center"
-                                data-accordion="accordion-faq-3">
-                            <span
-                                class="font-bold text-lg leading-[27px] text-left">What insurance provider do you use?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                     class="transition-all duration-300"
-                                     alt="icon">
-                            </div>
-                        </button>
-                        <div id="accordion-faq-3" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">We want to protect our and clients
-                                assets
-                                to the max level so that we chose the best one from Jakarta, Indonesia will also protect
-                                post building finished completed ahead one.</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">
-                        <button class="accordion-button flex justify-between gap-1 items-center"
-                                data-accordion="accordion-faq-4">
-                            <span
-                                class="font-bold text-lg leading-[27px] text-left">What if we have other questions?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                     class="transition-all duration-300"
-                                     alt="icon">
-                            </div>
-                        </button>
-                        <div id="accordion-faq-4" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">We want to protect our and clients
-                                assets
-                                to the max level so that we chose the best one from Jakarta, Indonesia will also protect
-                                post building finished completed ahead one.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--                <div class="flex flex-col gap-[30px] sm:w-[603px] shrink-0">--}}
+    {{--                    <!-- FAQ 1 -->--}}
+    {{--                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">--}}
+    {{--                        <button--}}
+    {{--                            class="accordion-button flex justify-between gap-1 items-center"--}}
+    {{--                            data-accordion="accordion-faq-1"--}}
+    {{--                        >--}}
+    {{--            <span class="font-bold text-lg leading-[27px] text-left"--}}
+    {{--            >What products does Magana export?</span--}}
+    {{--            >--}}
+    {{--                            <div class="arrow w-9 h-9 flex shrink-0">--}}
+    {{--                                <img--}}
+    {{--                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"--}}
+    {{--                                    class="transition-all duration-300"--}}
+    {{--                                    alt="icon"--}}
+    {{--                                />--}}
+    {{--                            </div>--}}
+    {{--                        </button>--}}
+    {{--                        <div id="accordion-faq-1" class="accordion-content hide">--}}
+    {{--                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">--}}
+    {{--                                Magana specializes in exporting premium banana leaves and handcrafted dolls made by--}}
+    {{--                                Balinese artisans. All our products are sustainably sourced and meet international--}}
+    {{--                                export standards.--}}
+    {{--                            </p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
 
+    {{--                    <!-- FAQ 2 -->--}}
+    {{--                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">--}}
+    {{--                        <button--}}
+    {{--                            class="accordion-button flex justify-between gap-1 items-center"--}}
+    {{--                            data-accordion="accordion-faq-2"--}}
+    {{--                        >--}}
+    {{--            <span class="font-bold text-lg leading-[27px] text-left"--}}
+    {{--            >Where is Magana based?</span--}}
+    {{--            >--}}
+    {{--                            <div class="arrow w-9 h-9 flex shrink-0">--}}
+    {{--                                <img--}}
+    {{--                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"--}}
+    {{--                                    class="transition-all duration-300"--}}
+    {{--                                    alt="icon"--}}
+    {{--                                />--}}
+    {{--                            </div>--}}
+    {{--                        </button>--}}
+    {{--                        <div id="accordion-faq-2" class="accordion-content hide">--}}
+    {{--                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">--}}
+    {{--                                We are proudly based in Bali, Indonesia, working directly with local farmers and--}}
+    {{--                                artisans to ensure authentic, high-quality products that represent Bali’s nature and--}}
+    {{--                                culture.--}}
+    {{--                            </p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+
+    {{--                    <!-- FAQ 3 -->--}}
+    {{--                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">--}}
+    {{--                        <button--}}
+    {{--                            class="accordion-button flex justify-between gap-1 items-center"--}}
+    {{--                            data-accordion="accordion-faq-3"--}}
+    {{--                        >--}}
+    {{--            <span class="font-bold text-lg leading-[27px] text-left"--}}
+    {{--            >Do you provide international shipping?</span--}}
+    {{--            >--}}
+    {{--                            <div class="arrow w-9 h-9 flex shrink-0">--}}
+    {{--                                <img--}}
+    {{--                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"--}}
+    {{--                                    class="transition-all duration-300"--}}
+    {{--                                    alt="icon"--}}
+    {{--                                />--}}
+    {{--                            </div>--}}
+    {{--                        </button>--}}
+    {{--                        <div id="accordion-faq-3" class="accordion-content hide">--}}
+    {{--                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">--}}
+    {{--                                Yes. We export worldwide through trusted logistics partners. Our packaging and export--}}
+    {{--                                procedures follow international safety and hygiene regulations, ensuring products--}}
+    {{--                                arrive fresh and in excellent condition.--}}
+    {{--                            </p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+
+    {{--                    <!-- FAQ 4 -->--}}
+    {{--                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">--}}
+    {{--                        <button--}}
+    {{--                            class="accordion-button flex justify-between gap-1 items-center"--}}
+    {{--                            data-accordion="accordion-faq-4"--}}
+    {{--                        >--}}
+    {{--            <span class="font-bold text-lg leading-[27px] text-left"--}}
+    {{--            >Can I request custom orders or packaging?</span--}}
+    {{--            >--}}
+    {{--                            <div class="arrow w-9 h-9 flex shrink-0">--}}
+    {{--                                <img--}}
+    {{--                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"--}}
+    {{--                                    class="transition-all duration-300"--}}
+    {{--                                    alt="icon"--}}
+    {{--                                />--}}
+    {{--                            </div>--}}
+    {{--                        </button>--}}
+    {{--                        <div id="accordion-faq-4" class="accordion-content hide">--}}
+    {{--                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">--}}
+    {{--                                Absolutely. We accommodate custom doll designs, branding, and tailored packaging for--}}
+    {{--                                both banana leaves and crafts, depending on order size and destination requirements.--}}
+    {{--                            </p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+
+    {{--                    <!-- FAQ 5 -->--}}
+    {{--                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full">--}}
+    {{--                        <button--}}
+    {{--                            class="accordion-button flex justify-between gap-1 items-center"--}}
+    {{--                            data-accordion="accordion-faq-5"--}}
+    {{--                        >--}}
+    {{--            <span class="font-bold text-lg leading-[27px] text-left"--}}
+    {{--            >How can I become a Magana partner or distributor?</span--}}
+    {{--            >--}}
+    {{--                            <div class="arrow w-9 h-9 flex shrink-0">--}}
+    {{--                                <img--}}
+    {{--                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"--}}
+    {{--                                    class="transition-all duration-300"--}}
+    {{--                                    alt="icon"--}}
+    {{--                                />--}}
+    {{--                            </div>--}}
+    {{--                        </button>--}}
+    {{--                        <div id="accordion-faq-5" class="accordion-content hide">--}}
+    {{--                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">--}}
+    {{--                                You can contact us directly via email or WhatsApp to discuss partnership--}}
+    {{--                                opportunities. Our team will assist you with pricing, shipping, and required export--}}
+    {{--                                documentation.--}}
+    {{--                            </p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    {{--    --}}
     <x-footer/>
 
     <div id="video-modal" tabindex="-1" aria-hidden="true"

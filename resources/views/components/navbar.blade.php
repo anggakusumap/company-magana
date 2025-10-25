@@ -5,7 +5,7 @@
         </div>
         <div class="flex flex-col">
             <p id="CompanyName" class="font-extrabold text-xl leading-[30px]">MAGANA</p>
-            <p id="CompanyTagline" class="text-sm text-cp-light-grey">Build Futuristic Dreams</p>
+            <p id="CompanyTagline" class="text-sm text-cp-light-grey">Nature. Culture. Connection.</p>
         </div>
     </div>
     <ul class="flex flex-wrap items-center gap-[30px]">
@@ -13,10 +13,19 @@
             <a href="{{route('front.index')}}">Home</a>
         </li>
         <li class="{{request()->routeIs('front.team') ? 'text-cp-dark-blue' : ''}} font-semibold hover:text-cp-dark-blue transition-all duration-300">
-            <a href="{{route('front.team')}}">Company</a>
+            <a href="{{route('front.team')}}">Products</a>
+        </li>
+        <li class="{{request()->routeIs('front.team') ? 'text-cp-dark-blue' : ''}} font-semibold hover:text-cp-dark-blue transition-all duration-300">
+            <a href="{{route('front.team')}}">Our Team</a>
         </li>
         <li class="{{request()->routeIs('front.about') ? 'text-cp-dark-blue' : ''}} font-semibold hover:text-cp-dark-blue transition-all duration-300">
             <a href="{{route('front.about')}}">About</a>
+        </li>
+        <li class="{{request()->routeIs('front.about') ? 'text-cp-dark-blue' : ''}} font-semibold hover:text-cp-dark-blue transition-all duration-300">
+            <a href="{{route('front.about')}}">FAQ</a>
+        </li>
+        <li class="{{request()->routeIs('front.about') ? 'text-cp-dark-blue' : ''}} font-semibold hover:text-cp-dark-blue transition-all duration-300">
+            <a href="{{route('front.about')}}">Contact Us</a>
         </li>
     </ul>
     <a href="{{route('front.appointment')}}"

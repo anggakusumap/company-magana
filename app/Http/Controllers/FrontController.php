@@ -19,7 +19,7 @@ class FrontController extends Controller
     {
         $statistics = CompanyStatistic::latest('id')->take(4)->get();
         $principles = OurPrinciple::latest('id')->take(3)->get();
-        $products = Product::latest('id')->take(3)->get();
+        $products = Product::latest('id')->take(4)->get();
         $teams = OurTeam::latest('id')->take(7)->get();
         $testimonials = Testimonial::latest('id')->take(3)->get();
         $hero_sections = HeroSection::orderByDesc('id')->take(1)->get();

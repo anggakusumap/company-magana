@@ -16,25 +16,25 @@
                 <span class="text-cp-light-grey">/</span>
                 <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Appointment</p>
             </div>
-            <h1 class="font-extrabold text-4xl leading-[45px]">We Help You to Build Awesome Project</h1>
+            <h1 class="font-extrabold text-4xl leading-[45px]">Get in touch</h1>
             <div class="flex flex-col gap-5">
                 <div class="flex items-center gap-[10px]">
                     <div class="w-6 h-6 flex shrink-0">
                         <img src="assets/icons/global.svg" alt="icon">
                     </div>
-                    <p class="text-cp-dark-blue font-semibold">No 96, Anggapati Jakarta</p>
+                    <p class="text-cp-dark-blue font-semibold">Jl. Antasura No. 65, Denpasar, Bali – Indonesia</p>
                 </div>
                 <div class="flex items-center gap-[10px]">
                     <div class="w-6 h-6 flex shrink-0">
                         <img src="assets/icons/call.svg" alt="icon">
                     </div>
-                    <p class="text-cp-dark-blue font-semibold">(021) 22081996</p>
+                    <p class="text-cp-dark-blue font-semibold">(0361) 444234</p>
                 </div>
                 <div class="flex items-center gap-[10px]">
                     <div class="w-6 h-6 flex shrink-0">
                         <img src="assets/icons/monitor-mobbile.svg" alt="icon">
                     </div>
-                    <p class="text-cp-dark-blue font-semibold">shaynacomp.com</p>
+                    <p class="text-cp-dark-blue font-semibold">Ayu Putry Magitha Anindia Amilia</p>
                 </div>
             </div>
         </div>
@@ -143,66 +143,6 @@
                 Book Appointment
             </button>
         </form>
-    </div>
-    <div id="Clients"
-         class="container max-w-[1130px] mx-auto flex flex-col justify-center text-center gap-5 mt-20 relative z-10">
-        <h2 class="font-bold text-lg">Trusted by 500+ Top Leaders Worldwide</h2>
-        <div class="logo-container flex flex-wrap gap-5 justify-center">
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-54.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-52.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-55.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-44.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-51.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-55.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-52.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-54.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-            <div
-                class="logo-card h-[68px] w-fit flex items-center shrink-0 border border-[#E8EAF2] rounded-[18px] p-4 gap-[10px] bg-white hover:border-cp-dark-blue transition-all duration-300">
-                <div class="overflow-hidden h-9">
-                    <img src="assets/logo/logo-51.svg" class="object-contain w-full h-full" alt="logo">
-                </div>
-            </div>
-        </div>
     </div>
     <div id="Testimonials" class="w-full flex flex-col gap-[50px] items-center mt-20">
         <div class="flex flex-col gap-[14px] items-center">
