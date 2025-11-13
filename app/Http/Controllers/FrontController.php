@@ -37,7 +37,7 @@ class FrontController extends Controller
     public function about()
     {
         $statistics = CompanyStatistic::latest('id')->take(4)->get();
-        $abouts = CompanyAbout::latest('id')->take(2)->get();
+        $abouts = CompanyAbout::latest('id')->take(3)->get();
         return view('front.about', compact('statistics', 'abouts'));
     }
 
@@ -56,5 +56,16 @@ class FrontController extends Controller
             Appointment::create($validated);
         });
         return redirect()->route('front.index');
+    }
+
+    public function product()
+    {
+        $products = Product::latest('id')->take(4)->get();
+        return view('front.product', compact('products'));
+    }
+
+    public function faq()
+    {
+        return view('front.faq');
     }
 }

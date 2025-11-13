@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Storage; @endphp
 @extends('front.layouts.app')
 
 @section('content')
@@ -9,37 +10,36 @@
     <div id="Contact"
          class="container max-w-[1130px] mx-auto flex flex-wrap xl:flex-nowrap justify-between gap-[50px] relative z-10">
         <div class="flex flex-col mt-20 gap-[50px]">
-            <div class="breadcrumb flex items-center gap-[30px]">
+            <div class="breadcrumb flex items-center gap-[30px]" data-aos="fade-down">
                 <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Home</p>
                 <span class="text-cp-light-grey">/</span>
-                <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Product</p>
-                <span class="text-cp-light-grey">/</span>
-                <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Appointment</p>
+                <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Contact us</p>
             </div>
-            <h1 class="font-extrabold text-4xl leading-[45px]">Get in touch</h1>
-            <div class="flex flex-col gap-5">
+            <h1 class="font-extrabold text-4xl leading-[45px]" data-aos="fade-up" data-aos-delay="100">Get in touch</h1>
+            <div class="flex flex-col gap-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex items-center gap-[10px]">
                     <div class="w-6 h-6 flex shrink-0">
-                        <img src="assets/icons/global.svg" alt="icon">
+                        <img src="{{asset('assets/icons/global.svg')}}" alt="icon">
                     </div>
                     <p class="text-cp-dark-blue font-semibold">Jl. Antasura No. 65, Denpasar, Bali – Indonesia</p>
                 </div>
                 <div class="flex items-center gap-[10px]">
                     <div class="w-6 h-6 flex shrink-0">
-                        <img src="assets/icons/call.svg" alt="icon">
+                        <img src="{{asset('assets/icons/call.svg')}}" alt="icon">
                     </div>
                     <p class="text-cp-dark-blue font-semibold">(0361) 444234</p>
                 </div>
                 <div class="flex items-center gap-[10px]">
                     <div class="w-6 h-6 flex shrink-0">
-                        <img src="assets/icons/monitor-mobbile.svg" alt="icon">
+                        <img src="{{asset('assets/icons/monitor-mobbile.svg')}}" alt="icon">
                     </div>
                     <p class="text-cp-dark-blue font-semibold">Ayu Putry Magitha Anindia Amilia</p>
                 </div>
             </div>
         </div>
         <form action="{{route('front.appointment_store')}}" method="POST"
-              class="flex flex-col p-[30px] rounded-[20px] gap-[18px] bg-white shadow-[0_10px_30px_0_#D1D4DF40] w-full md:w-[700px] shrink-0">
+              class="flex flex-col p-[30px] rounded-[20px] gap-[18px] bg-white shadow-[0_10px_30px_0_#D1D4DF40] w-full md:w-[700px] shrink-0"
+              data-aos="fade-left" data-aos-delay="100">
             @csrf
             @method('POST')
             <div class="flex items-center gap-[18px]">
@@ -48,7 +48,7 @@
                     <div
                         class="flex items-center gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white">
                         <div class="w-[18px] h-[18px] flex shrink-0">
-                            <img src="assets/icons/profile.svg" alt="icon">
+                            <img src="{{asset('assets/icons/profile.svg')}}" alt="icon">
                         </div>
                         <input type="text" name="name" id="name"
                                class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full"
@@ -60,7 +60,7 @@
                     <div
                         class="flex items-center gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white">
                         <div class="w-[18px] h-[18px] flex shrink-0">
-                            <img src="assets/icons/sms.svg" alt="icon">
+                            <img src="{{asset('assets/icons/sms.svg')}}" alt="icon">
                         </div>
                         <input type="email" name="email" id="email"
                                class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full"
@@ -74,7 +74,7 @@
                     <div
                         class="flex items-center gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white">
                         <div class="w-[18px] h-[18px] flex shrink-0">
-                            <img src="assets/icons/call-black.svg" alt="icon">
+                            <img src="{{asset('assets/icons/call-black.svg')}}" alt="icon">
                         </div>
                         <input type="tel" name="phone_number" id="phone_number"
                                class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full"
@@ -86,7 +86,7 @@
                     <div
                         class="flex items-center gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white relative">
                         <div class="w-[18px] h-[18px] flex shrink-0">
-                            <img src="assets/icons/calendar.svg" alt="icon">
+                            <img src="{{asset('assets/icons/calendar.svg')}}" alt="icon">
                         </div>
                         <button type="button" id="dateButton"
                                 class="p-0 bg-transparent w-full text-left border-none outline-none">Choose the date
@@ -101,7 +101,7 @@
                     <div
                         class="flex items-center gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white">
                         <div class="w-[18px] h-[18px] flex shrink-0">
-                            <img src="assets/icons/building-4-black.svg" alt="icon">
+                            <img src="{{asset('assets/icons/building-4-black.svg')}}" alt="icon">
                         </div>
                         <select name="product_id" id="product_id"
                                 class="appearance-none outline-none w-full invalid:font-normal font-semibold px-[10px] -mx-[10px]"
@@ -118,7 +118,7 @@
                     <div
                         class="flex items-center gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white">
                         <div class="w-[18px] h-[18px] flex shrink-0">
-                            <img src="assets/icons/dollar-square.svg" alt="icon">
+                            <img src="{{asset('assets/icons/dollar-square.svg')}}" alt="icon">
                         </div>
                         <input type="number" name="budget" id="budget"
                                class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full"
@@ -131,7 +131,7 @@
                 <div
                     class="flex gap-[10px] p-[14px_20px] border border-[#E8EAF2] focus-within:border-cp-dark-blue transition-all duration-300 rounded-xl bg-white">
                     <div class="w-[18px] h-[18px] flex shrink-0 mt-[3px]">
-                        <img src="assets/icons/message-text.svg" alt="icon">
+                        <img src="{{asset('assets/icons/message-text.svg')}}" alt="icon">
                     </div>
                     <textarea name="brief" id="brief" rows="6"
                               class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full resize-none"
@@ -140,18 +140,18 @@
             </div>
             <button type="submit"
                     class="bg-cp-dark-blue p-5 w-full rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">
-                Book Appointment
+                SUBMIT
             </button>
         </form>
     </div>
     <div id="Testimonials" class="w-full flex flex-col gap-[50px] items-center mt-20">
-        <div class="flex flex-col gap-[14px] items-center">
+        <div class="flex flex-col gap-[14px] items-center" data-aos="fade-up">
             <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
                 SUCCESS CLIENTS</p>
-            <h2 class="font-bold text-4xl leading-[45px] text-center">Our Satisfied Clients<br>From Worldwide Company
+            <h2 class="font-bold text-4xl leading-[45px] text-center">Reviews
             </h2>
         </div>
-        <div class="main-carousel w-full">
+        <div class="main-carousel w-full" data-aos="fade-up" data-aos-delay="200">
             @forelse($testimonials as $testimonial)
                 <div
                     class="carousel-card container max-w-[1130px] w-full flex flex-wrap justify-between items-center lg:mx-[calc((100vw-1130px)/2)]">
@@ -215,6 +215,11 @@
 
     <x-footer/>
 @endsection
+
+@push('after-styles')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+@endpush
+
 @push('after-scripts')
     <script src="{{asset('js/contact-form.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -222,4 +227,15 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://unpkg.com/flickity-fade@1/flickity-fade.js"></script>
     <script src="{{asset('js/carousel.js')}}"></script>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
 @endpush

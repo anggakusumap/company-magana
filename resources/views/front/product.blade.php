@@ -9,54 +9,40 @@
                 <div class="breadcrumb flex items-center justify-center gap-[30px]" data-aos="fade-down">
                     <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Home</p>
                     <span class="text-cp-light-grey">/</span>
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">About Us</p>
+                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Products</p>
                 </div>
                 <h2 class="font-bold text-4xl leading-[45px] text-center" data-aos="fade-up" data-aos-delay="100">
-                    Since Beginning We Only <br> Want to Make World Better
+                    Our Products
                 </h2>
             </div>
         </div>
     </div>
     <div id="Products" class="container max-w-[1130px] mx-auto flex flex-col gap-20 mt-20">
-        @forelse($abouts as $index => $about)
+        @forelse($products as $index => $product)
             <div class="product flex flex-wrap justify-center items-center gap-[60px] even:flex-row-reverse">
                 <div class="w-[470px] h-[520px] flex shrink-0 overflow-hidden"
                      data-aos="{{ $index % 2 == 0 ? 'fade-right' : 'fade-left' }}">
-                    <img src="{{Storage::url($about->thumbnail)}}"
-                         class="w-full h-full object-contain"
+                    <img src="{{Storage::url($product->thumbnail)}}" class="w-full h-full object-contain"
                          alt="thumbnail">
                 </div>
                 <div class="flex flex-col gap-[30px] py-[10px] h-fit max-w-[500px]"
                      data-aos="{{ $index % 2 == 0 ? 'fade-left' : 'fade-right' }}" data-aos-delay="100">
                     <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                        OUR {{$about->type}}</p>
+                        {{$product->tagline}}</p>
                     <div class="flex flex-col gap-[10px]">
-                        <h2 class="font-bold text-4xl leading-[45px]">{{$about->name}}</h2>
-                        <div class="flex flex-col gap-5">
-                            @forelse($about->keypoints as $kIndex => $keypoint)
-                                <div class="flex items-center gap-[10px]" data-aos="fade-up"
-                                     data-aos-delay="{{ ($kIndex * 100) + 200 }}">
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/tick-circle.svg')}}" alt="icon">
-                                    </div>
-                                    <p class="leading-[26px] font-semibold">{{$keypoint->keypoint}}</p>
-                                </div>
-                            @empty
-                                <div class="flex items-center gap-[10px]">
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/tick-circle.svg')}}" alt="icon">
-                                    </div>
-                                    <p class="leading-[26px] font-semibold">No keypoints available</p>
-                                </div>
-                            @endforelse
-                        </div>
+                        <h2 class="font-bold text-4xl leading-[45px]">{{$product->name}}</h2>
+                        <p class="leading-[30px] text-cp-light-grey">{{$product->about}}</p>
                     </div>
+                    <a href="{{route('front.appointment')}}"
+                       class="bg-cp-dark-blue p-[14px_20px] w-fit rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">Discover
+                        More</a>
                 </div>
             </div>
         @empty
-            <p>No about data yet.</p>
+            <p>No products data yet.</p>
         @endforelse
     </div>
+
     <x-footer/>
 @endsection
 

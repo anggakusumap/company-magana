@@ -15,7 +15,7 @@
                 <div class="flex flex-col">
                     <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-white">MAGANA</p>
                     <p id="CompanyTagline" class="text-sm text-cp-light-grey">
-                        Nature. Culture. Connection.
+                        Locally grown, globally trusted.
                     </p>
                 </div>
             </div>
@@ -71,9 +71,3 @@
         <p class="font-extrabold text-[250px] leading-[375px] text-center text-white opacity-5">MAGANA</p>
     </div>
 </footer>
-
-{{--instagram--}}
-{{--tiktok--}}
-{{--facebook--}}
-{{--whatsapp--}}
-{{--email--}}
