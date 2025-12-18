@@ -1121,9 +1121,13 @@ video {
     background-color: rgb(8 7 53 / var(--tw-bg-opacity));
 }
 
+.bg-secondary {
+    background-color: #FF6101;
+}
+
 .bg-cp-dark-blue {
     --tw-bg-opacity: 1;
-    background-color: rgb(49 46 203 / var(--tw-bg-opacity));
+    background-color: #0B109F;
 }
 
 .bg-cp-light-blue {
@@ -1362,7 +1366,7 @@ video {
 
 .text-cp-dark-blue {
     --tw-text-opacity: 1;
-    color: rgb(49 46 203 / var(--tw-text-opacity));
+    color: #0B109F;
 }
 
 .text-cp-light-blue {
