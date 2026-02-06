@@ -1,150 +1,146 @@
 @extends('front.layouts.app')
 
 @section('content')
-    <div id="header" class="bg-[#F6F7FA] relative">
-        <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
-            <x-navbar/>
-            <div class="flex flex-col gap-[50px] items-center py-20">
-                <div class="breadcrumb flex items-center justify-center gap-[30px]" data-aos="fade-down">
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Home</p>
-                    <span class="text-cp-light-grey">/</span>
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">FAQ</p>
+    <div id="header" class="relative bg-surface-secondary overflow-hidden pt-10 pb-32">
+        <div class="container relative z-10">
+            <x-navbar />
+        </div>
+    </div>
+
+    <div id="FAQ" class="container relative z-20 -mt-20 pb-20">
+        <div class="flex flex-col gap-12 items-center">
+            <div class="flex flex-col gap-4 items-center text-center">
+                <div class="breadcrumb flex items-center justify-center gap-3 text-sm" data-aos="fade-down">
+                    <a href="{{ route('front.index') }}"
+                        class="text-text-muted hover:text-primary transition-colors">Home</a>
+                    <span class="text-text-muted">/</span>
+                    <span class="text-primary font-semibold">FAQ</span>
                 </div>
-                <h2 class="font-bold text-4xl leading-[45px] text-center" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="font-black text-4xl leading-tight text-primary" data-aos="fade-up" data-aos-delay="100">
                     Frequently Asked Question
-                </h2>
+                </h1>
             </div>
-        </div>
-    </div>
-    <div id="FAQ" class="bg-[#F6F7FA] w-full pb-20 px-[10px] -mb-20">
-        <div class="container max-w-[1000px] mx-auto">
-            <div class="flex flex-col lg:flex-row justify-center gap-[50px] sm:gap-[70px] items-center mx-auto">
-                <div class="flex flex-col gap-[30px] sm:w-[603px] shrink-0">
-                    <!-- FAQ 1 -->
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full" data-aos="fade-up" data-aos-delay="100">
-                        <button
-                            class="accordion-button flex justify-between gap-1 items-center"
-                            data-accordion="accordion-faq-1"
-                        >
-                            <span
-                                class="font-bold text-lg leading-[27px] text-left">What products does Magana export?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img
-                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                    class="transition-all duration-300"
-                                    alt="icon"
-                                />
-                            </div>
-                        </button>
-                        <div id="accordion-faq-1" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">
-                                Magana specializes in exporting premium banana leaves and handcrafted plush toys made by
-                                Balinese artisans. All our products are sustainably sourced and meet international
-                                export standards.
-                            </p>
-                        </div>
-                    </div>
 
-                    <!-- FAQ 2 -->
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full" data-aos="fade-up" data-aos-delay="200">
-                        <button
-                            class="accordion-button flex justify-between gap-1 items-center"
-                            data-accordion="accordion-faq-2"
-                        >
-                            <span class="font-bold text-lg leading-[27px] text-left">Where is Magana based?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img
-                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                    class="transition-all duration-300"
-                                    alt="icon"
-                                />
-                            </div>
-                        </button>
-                        <div id="accordion-faq-2" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">
-                                We are proudly based in Bali, Indonesia, working directly with local farmers and
-                                artisans to ensure authentic, high-quality products that represent Bali's nature and
-                                culture.
-                            </p>
+            <div class="w-full max-w-3xl flex flex-col gap-6">
+                <!-- FAQ 1 -->
+                <div class="group bg-white rounded-2xl border border-surface-border p-1" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <button class="accordion-button w-full flex justify-between items-center p-5 text-left"
+                        data-accordion="accordion-faq-1">
+                        <span class="font-bold text-lg text-primary">What products does Magana export?</span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-secondary flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
                         </div>
+                    </button>
+                    <div id="accordion-faq-1" class="accordion-content hidden px-5 pb-5">
+                        <p class="text-text-muted leading-relaxed">
+                            Magana specializes in exporting premium banana leaves and handcrafted plush toys made by
+                            Balinese artisans. All our products are sustainably sourced and meet international
+                            export standards.
+                        </p>
                     </div>
+                </div>
 
-                    <!-- FAQ 3 -->
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full" data-aos="fade-up" data-aos-delay="300">
-                        <button
-                            class="accordion-button flex justify-between gap-1 items-center"
-                            data-accordion="accordion-faq-3"
-                        >
-                            <span class="font-bold text-lg leading-[27px] text-left">Do you provide international shipping?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img
-                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                    class="transition-all duration-300"
-                                    alt="icon"
-                                />
-                            </div>
-                        </button>
-                        <div id="accordion-faq-3" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">
-                                Yes. We export worldwide through trusted logistics partners. Our packaging and export
-                                procedures follow international safety and hygiene regulations, ensuring products
-                                arrive fresh and in excellent condition.
-                            </p>
+                <!-- FAQ 2 -->
+                <div class="group bg-white rounded-2xl border border-surface-border p-1" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <button class="accordion-button w-full flex justify-between items-center p-5 text-left"
+                        data-accordion="accordion-faq-2">
+                        <span class="font-bold text-lg text-primary">Where is Magana based?</span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-secondary flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
                         </div>
+                    </button>
+                    <div id="accordion-faq-2" class="accordion-content hidden px-5 pb-5">
+                        <p class="text-text-muted leading-relaxed">
+                            We are proudly based in Bali, Indonesia, working directly with local farmers and
+                            artisans to ensure authentic, high-quality products that represent Bali's nature and
+                            culture.
+                        </p>
                     </div>
+                </div>
 
-                    <!-- FAQ 4 -->
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full" data-aos="fade-up" data-aos-delay="400">
-                        <button
-                            class="accordion-button flex justify-between gap-1 items-center"
-                            data-accordion="accordion-faq-4"
-                        >
-                            <span class="font-bold text-lg leading-[27px] text-left">Can I request custom orders or packaging?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img
-                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                    class="transition-all duration-300"
-                                    alt="icon"
-                                />
-                            </div>
-                        </button>
-                        <div id="accordion-faq-4" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">
-                                Absolutely. We accommodate custom doll designs, branding, and tailored packaging for
-                                both banana leaves and crafts, depending on order size and destination requirements.
-                            </p>
+                <!-- FAQ 3 -->
+                <div class="group bg-white rounded-2xl border border-surface-border p-1" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <button class="accordion-button w-full flex justify-between items-center p-5 text-left"
+                        data-accordion="accordion-faq-3">
+                        <span class="font-bold text-lg text-primary">Do you provide international shipping?</span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-secondary flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
                         </div>
+                    </button>
+                    <div id="accordion-faq-3" class="accordion-content hidden px-5 pb-5">
+                        <p class="text-text-muted leading-relaxed">
+                            Yes. We export worldwide through trusted logistics partners. Our packaging and export
+                            procedures follow international safety and hygiene regulations, ensuring products
+                            arrive fresh and in excellent condition.
+                        </p>
                     </div>
+                </div>
 
-                    <!-- FAQ 5 -->
-                    <div class="flex flex-col p-5 rounded-2xl bg-white w-full" data-aos="fade-up" data-aos-delay="500">
-                        <button
-                            class="accordion-button flex justify-between gap-1 items-center"
-                            data-accordion="accordion-faq-5"
-                        >
-                            <span class="font-bold text-lg leading-[27px] text-left">How can I become a Magana partner or distributor?</span>
-                            <div class="arrow w-9 h-9 flex shrink-0">
-                                <img
-                                    src="{{asset('assets/icons/arrow-circle-down.svg')}}"
-                                    class="transition-all duration-300"
-                                    alt="icon"
-                                />
-                            </div>
-                        </button>
-                        <div id="accordion-faq-5" class="accordion-content hide">
-                            <p class="leading-[30px] text-cp-light-grey pt-[14px]">
-                                You can contact us directly via email or WhatsApp to discuss partnership
-                                opportunities. Our team will assist you with pricing, shipping, and required export
-                                documentation.
-                            </p>
+                <!-- FAQ 4 -->
+                <div class="group bg-white rounded-2xl border border-surface-border p-1" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <button class="accordion-button w-full flex justify-between items-center p-5 text-left"
+                        data-accordion="accordion-faq-4">
+                        <span class="font-bold text-lg text-primary">Can I request custom orders or packaging?</span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-secondary flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
                         </div>
+                    </button>
+                    <div id="accordion-faq-4" class="accordion-content hidden px-5 pb-5">
+                        <p class="text-text-muted leading-relaxed">
+                            Absolutely. We accommodate custom doll designs, branding, and tailored packaging for
+                            both banana leaves and crafts, depending on order size and destination requirements.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="group bg-white rounded-2xl border border-surface-border p-1" data-aos="fade-up"
+                    data-aos-delay="500">
+                    <button class="accordion-button w-full flex justify-between items-center p-5 text-left"
+                        data-accordion="accordion-faq-5">
+                        <span class="font-bold text-lg text-primary">How can I become a Magana partner or
+                            distributor?</span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-secondary flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="accordion-faq-5" class="accordion-content hidden px-5 pb-5">
+                        <p class="text-text-muted leading-relaxed">
+                            You can contact us directly via email or WhatsApp to discuss partnership
+                            opportunities. Our team will assist you with pricing, shipping, and required export
+                            documentation.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <x-footer/>
+    <x-footer />
 @endsection
 
 @push('after-styles')
@@ -153,15 +149,7 @@
 
 @push('after-scripts')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <!-- JavaScript -->
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="https://unpkg.com/flickity-fade@1/flickity-fade.js"></script>
-    <script src="{{asset('js/carousel.js')}}"></script>
-    <script src="{{asset('js/accordion.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="{{asset('js/modal-video.js')}}"></script>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -171,6 +159,31 @@
             easing: 'ease-in-out',
             once: true,
             offset: 100
+        });
+
+        // Simple Accordion Script
+        $(document).ready(function () {
+            $('.accordion-button').on('click', function () {
+                const targetId = $(this).data('accordion');
+                const content = $('#' + targetId);
+                const parent = $(this).parent();
+
+                // Toggle active state
+                parent.toggleClass('active pb-2 shadow-sm border-secondary/20'); // Add styles when active if needed
+
+                // Toggle visibility
+                if (content.hasClass('hidden')) {
+                    content.removeClass('hidden').slideDown(300);
+                    // Rotate arrow
+                    $(this).find('div').addClass('rotate-180 bg-secondary text-white');
+                } else {
+                    content.slideUp(300, function () {
+                        $(this).addClass('hidden');
+                    });
+                    // Reset arrow
+                    $(this).find('div').removeClass('rotate-180 bg-secondary text-white');
+                }
+            });
         });
     </script>
 @endpush

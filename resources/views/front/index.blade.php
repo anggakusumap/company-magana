@@ -6,284 +6,222 @@
 @endpush
 
 @section('content')
-    <div id="header" class="bg-[#F6F7FA] relative overflow-hidden">
-        <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
+    <div id="header" class="relative bg-surface-secondary overflow-hidden min-h-[90vh] flex items-center">
+        <div class="container relative z-10">
             <x-navbar/>
 
             @forelse($hero_sections as $hero)
                 <input type="hidden" name="path_video" id="path_video" value="{{$hero->path_video}}">
-                <div id="Hero" class="flex flex-col gap-[30px] mt-20 pb-20">
-                    <div class="flex items-center bg-white p-[8px_16px] gap-[10px] rounded-full w-fit"
+                <div id="Hero" class="flex flex-col gap-8 mt-12 pb-20 items-start max-w-2xl relative z-10">
+                    <div class="flex items-center bg-white border border-surface-border p-2 pr-4 pl-2 gap-3 rounded-full shadow-sm"
                          data-aos="fade-down" data-aos-delay="100">
-                        <div class="w-5 h-5 flex shrink-0 overflow-hidden">
-                            <img src="{{asset('assets/icons/crown.svg')}}" class="object-contain" alt="icon">
+                        <div class="w-8 h-8 flex items-center justify-center bg-accent/10 rounded-full shrink-0">
+                            <img src="{{asset('assets/icons/crown.svg')}}" class="w-4 h-4 object-contain" alt="icon">
                         </div>
-                        <p class="font-semibold text-sm">{{$hero->achievement}}</p>
+                        <p class="font-semibold text-sm text-text-main">{{$hero->achievement}}</p>
                     </div>
-                    <div class="flex flex-col gap-[10px]" data-aos="fade-up" data-aos-delay="200">
-                        <h1 class="font-extrabold text-[50px] leading-[65px] max-w-[536px]">{{$hero->heading}}</h1>
-                        <p class="text-cp-light-grey leading-[30px] max-w-[437px]">PT. Magana Dana Mahanta is a trusted
-                            Indonesian export company based in Bali, specializing in delivering high-quality banana
-                            leaves, tropical fruits, and handmade plush toys to international markets. With a strong
-                            commitment to sustainability, quality, and authenticity, we proudly connect Indonesia's
-                            natural and creative products with buyers around the world.</p>
+                    
+                    <div class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <h1 class="font-black text-5xl md:text-6xl lg:text-7xl leading-tight text-primary tracking-tight">
+                            {{$hero->heading}}
+                        </h1>
+                        <p class="text-text-muted text-lg leading-relaxed max-w-lg">
+                            PT. Magana Dana Mahanta is a trusted Indonesian export company based in Bali, delivering high-quality banana leaves, tropical fruits, and handmade plush toys to international markets.
+                        </p>
                     </div>
-                    <div class="flex items-center gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <a href=""
-                           class="bg-cp-dark-blue p-5 w-fit rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">Explore
-                            Now</a>
+                    
+                    <div class="flex items-center gap-4 mt-4" data-aos="fade-up" data-aos-delay="300">
+                        <a href="{{ route('front.product') }}"
+                           class="bg-secondary text-white px-8 py-4 rounded-xl hover:bg-secondary-hover shadow-lg hover:shadow-orange-500/30 transition-all duration-300 font-bold text-lg">
+                            Explore Now
+                        </a>
                         <button
-                            class="bg-cp-black p-5 w-fit rounded-xl font-bold text-white flex items-center gap-[10px]"
+                            class="flex items-center gap-3 px-6 py-4 rounded-xl font-bold text-primary bg-white border border-surface-border hover:bg-slate-50 transition-all duration-300"
                             onclick="{modal.show()}">
-                            <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                                <img src="{{asset('assets/icons/play-circle.svg')}}"
-                                     class="w-full h-full object-contain"
-                                     alt="icon">
+                            <div class="w-6 h-6 flex shrink-0">
+                                <img src="{{asset('assets/icons/play-circle.svg')}}" class="w-full h-full object-contain" alt="icon">
                             </div>
                             <span>Watch Video</span>
                         </button>
                     </div>
                 </div>
+            @empty
+                <p>No hero section yet.</p>
+            @endforelse
         </div>
-        <div class="absolute w-[43%] h-full top-0 right-0 overflow-hidden z-0" data-aos="fade-left"
-             data-aos-delay="100">
-            <img src="{{Storage::url($hero->banner)}}" class="object-cover w-full h-full" alt="banner">
+        
+        <!-- Hero Image Background -->
+        <div class="absolute inset-y-0 right-0 w-full lg:w-[50%] z-0" data-aos="fade-left" data-aos-delay="100">
+            @if(isset($hero) && $hero->banner)
+                <img src="{{Storage::url($hero->banner)}}" class="object-cover w-full h-full lg:rounded-l-[3rem]" alt="banner">
+                <div class="absolute inset-0 bg-gradient-to-r from-surface-secondary/90 via-transparent to-transparent lg:from-surface-secondary"></div>
+            @endif
         </div>
-        @empty
-            <p>No hero section yet.</p>
-        @endforelse
     </div>
 
-    <div id="WhatWeDo" class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-20">
-        <div class="flex items-center justify-between" data-aos="fade-up">
-            <div class="flex flex-col gap-[14px]">
-                <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                    Our Work
-                </p>
-                <h2 class="font-bold text-4xl leading-[45px]">What We Do</h2>
+    <!-- Features Section -->
+    <div id="WhatWeDo" class="container py-20">
+        <div class="flex flex-col md:flex-row items-end justify-between gap-6 mb-12" data-aos="fade-up">
+            <div class="flex flex-col gap-3">
+                <span class="text-secondary font-bold tracking-wider uppercase text-sm">Our Work</span>
+                <h2 class="font-bold text-4xl text-primary">What We Do</h2>
             </div>
             <a href="{{ route('front.index') }}"
-               class="bg-cp-black p-[14px_20px] w-fit rounded-xl font-bold text-white hover:bg-cp-dark-blue transition-all duration-300">
+               class="flex items-center gap-2 text-text-main font-semibold hover:text-secondary transition-colors duration-300 group">
                 Explore More
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
         </div>
 
-        <div
-            class="awards-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
-
-            <!-- Card 1 -->
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300"
-                data-aos="fade-up" data-aos-delay="100">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Feature Cards -->
+            @foreach([
+                ['title' => 'Sustainable Agricultural Export', 'desc' => 'We export Indonesia\'s best tropical fruits and agricultural products, focusing on freshness, quality, and eco-friendly practices.'],
+                ['title' => 'Handcrafted Doll & Artisan Production', 'desc' => 'Our unique plush toys and crafts are handmade by Balinese artisans, combining creativity and culture for global appreciation.'],
+                ['title' => 'Quality Control & Packaging', 'desc' => 'We ensure every product meets international standards through careful inspection and sustainable packaging.'],
+                ['title' => 'Global Trade & Partnership', 'desc' => 'Magana connects local producers with worldwide buyers through transparent, reliable, and trusted trade networks.']
+            ] as $index => $item)
+            <div class="group bg-white p-8 rounded-2xl border border-surface-border hover:border-accent hover:shadow-card transition-all duration-300 flex flex-col gap-6"
+                 data-aos="fade-up" data-aos-delay="{{ 100 * ($index + 1) }}">
+                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon" class="w-8 h-8 group-hover:brightness-0 group-hover:invert transition-all">
                 </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Sustainable Agricultural Export</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">
-                    We export Indonesia's best tropical fruits and agricultural products, focusing on freshness,
-                    quality, and eco-friendly practices.
-                </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300"
-                data-aos="fade-up" data-aos-delay="200">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
+                <div class="space-y-4">
+                    <h3 class="font-bold text-xl text-primary leading-snug">{{ $item['title'] }}</h3>
+                    <div class="h-px w-full bg-surface-border"></div>
+                    <p class="text-text-muted leading-relaxed">{{ $item['desc'] }}</p>
                 </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Handcrafted Doll & Artisan Production</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">
-                    Our unique plush toys and crafts are handmade by Balinese artisans, combining creativity and culture
-                    for global appreciation.
-                </p>
             </div>
-
-            <!-- Card 3 -->
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300"
-                data-aos="fade-up" data-aos-delay="300">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
-                </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Quality Control & Packaging</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">
-                    We ensure every product meets international standards through careful inspection and sustainable
-                    packaging.
-                </p>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-                class="card bg-white flex flex-col h-full p-[30px] gap-[30px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300"
-                data-aos="fade-up" data-aos-delay="400">
-                <div class="w-[55px] h-[55px] flex shrink-0">
-                    <img src="{{ asset('assets/icons/cup-blue.svg') }}" alt="icon">
-                </div>
-                <hr class="border-[#E8EAF2]">
-                <p class="font-bold text-xl leading-[30px]">Global Trade & Partnership</p>
-                <hr class="border-[#E8EAF2]">
-                <p class="text-cp-light-grey">
-                    Magana connects local producers with worldwide buyers through transparent, reliable, and trusted
-                    trade networks.
-                </p>
-            </div>
-
+            @endforeach
         </div>
     </div>
 
-    <div id="OurPrinciples" class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-20">
-        <div class="flex items-center justify-between" data-aos="fade-up">
-            <div class="flex flex-col gap-[14px]">
-                <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                    OUR PRINCIPLES</p>
-                <h2 class="font-bold text-4xl leading-[45px]">Why Choose Us</h2>
+    <!-- Principles Section -->
+    <div id="OurPrinciples" class="container py-20">
+        <div class="flex flex-col md:flex-row items-end justify-between gap-6 mb-12" data-aos="fade-up">
+            <div class="flex flex-col gap-3">
+                <span class="text-secondary font-bold tracking-wider uppercase text-sm">Our Principles</span>
+                <h2 class="font-bold text-4xl text-primary">Why Choose Us</h2>
             </div>
-            <a href="" class="bg-cp-black p-[14px_20px] w-fit rounded-xl font-bold text-white">Explore More</a>
+            <a href="#" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary-hover transition-colors duration-300 font-bold text-sm">
+                Learn More
+            </a>
         </div>
-        <div class="flex items-center bg-white p-[8px_16px] gap-[10px] rounded-full w-fit"
-             data-aos="fade-right" data-aos-delay="100">
-            <div class="w-5 h-5 flex shrink-0 overflow-hidden">
-                <img src="{{asset('assets/icons/crown.svg')}}" class="object-contain" alt="icon">
-            </div>
-            <p class="font-semibold text-sm">At PT. Magana Dana Mahanta, we connect Indonesia's local farmers
-                and artisans with the world — exporting fresh tropical fruits, banana leaves, and handmade plush toys
-                from the heart of Bali.
-            </p>
+        
+        <div class="bg-indigo-50 p-6 rounded-2xl max-w-3xl mb-12 flex items-start gap-4" data-aos="fade-right">
+             <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center shrink-0 text-indigo-600 font-bold">
+                !
+             </div>
+             <p class="font-medium text-indigo-900 leading-relaxed">
+                At PT. Magana Dana Mahanta, we connect Indonesia's local farmers and artisans with the world — exporting fresh tropical fruits, banana leaves, and handmade plush toys from the heart of Bali.
+             </p>
         </div>
-        <div class="flex flex-wrap items-center gap-[30px] justify-center">
-            @forelse($principles as $index => $principle)
-                <div
-                    class="card w-[356.67px] flex flex-col bg-white border border-[#E8EAF2] gap-[30px] overflow-hidden hover:border-cp-dark-blue transition-all duration-300"
-                    data-aos="zoom-in" data-aos-delay="{{ ($index * 100) + 100 }}">
-                    <div class="thumbnail h-[200px] flex shrink-0 overflow-hidden">
-                        <img src="{{Storage::url($principle->thumbnail)}}"
-                             class="object-cover object-center w-full h-full"
-                             alt="thumbnails">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @forelse($principles as $principle)
+                <div class="bg-white rounded-2xl overflow-hidden border border-surface-border group hover:shadow-card hover:border-secondary transition-all duration-300 flex flex-col"
+                     data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden">
+                        <img src="{{Storage::url($principle->thumbnail)}}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" alt="{{$principle->name}}">
                     </div>
-                    <div class="flex flex-col p-[0_30px_30px_30px] gap-5">
-                        <div class="flex flex-col gap-1">
-                            <p class="title font-bold text-xl leading-[30px]">{{$principle->name}}</p>
-                            <p class="leading-[30px] text-cp-light-grey">{{$principle->subtitle}}</p>
-                        </div>
-                        <a href="" class="font-semibold text-cp-dark-blue">Learn More</a>
+                    <div class="p-6 flex flex-col gap-4 flex-grow">
+                        <h3 class="font-bold text-2xl text-primary">{{$principle->name}}</h3>
+                        <p class="text-text-muted leading-relaxed flex-grow">{{$principle->subtitle}}</p>
+                        <a href="#" class="font-semibold text-secondary flex items-center gap-2 group-hover:gap-3 transition-all">
+                            Learn More <span aria-hidden="true">&rarr;</span>
+                        </a>
                     </div>
                 </div>
             @empty
-                <p>No principles data yet.</p>
+                <div class="col-span-full text-center py-10 text-text-muted">No principles data available.</div>
             @endforelse
         </div>
     </div>
 
-    <div id="Products" class="container max-w-[1130px] mx-auto flex flex-col gap-20 mt-20">
+    <!-- Products Section -->
+    <div id="Products" class="container py-20 space-y-24">
         @forelse($products as $index => $product)
-            <div class="product flex flex-wrap justify-center items-center gap-[60px] even:flex-row-reverse">
-                <div class="w-[470px] h-[520px] flex shrink-0 overflow-hidden"
-                     data-aos="{{ $index % 2 == 0 ? 'fade-right' : 'fade-left' }}">
-                    <img src="{{Storage::url($product->thumbnail)}}" class="w-full h-full object-contain"
-                         alt="thumbnail">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 {{ $index % 2 == 1 ? 'lg:flex-row-reverse' : '' }}">
+                <div class="w-full lg:w-1/2 overflow-hidden rounded-3xl relative group" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 z-10"></div>
+                     <!-- Placeholder for product image styling improvement -->
+                    <img src="{{Storage::url($product->thumbnail)}}" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" alt="{{$product->name}}">
                 </div>
-                <div class="flex flex-col gap-[30px] py-[10px] h-fit max-w-[500px]"
-                     data-aos="{{ $index % 2 == 0 ? 'fade-left' : 'fade-right' }}" data-aos-delay="100">
-                    <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                        {{$product->tagline}}</p>
-                    <div class="flex flex-col gap-[10px]">
-                        <h2 class="font-bold text-4xl leading-[45px]">{{$product->name}}</h2>
-                        <p class="leading-[30px] text-cp-light-grey">{{$product->about}}</p>
+                <div class="w-full lg:w-1/2 flex flex-col gap-6" data-aos="fade-left">
+                    <div class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full w-fit font-bold text-xs uppercase tracking-wider">
+                        {{$product->tagline}}
                     </div>
+                    <h2 class="font-bold text-4xl lg:text-5xl text-primary">{{$product->name}}</h2>
+                    <p class="text-text-muted text-lg leading-relaxed">{{$product->about}}</p>
                     <a href="{{route('front.appointment')}}"
-                       class="bg-cp-dark-blue p-[14px_20px] w-fit rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">Discover
-                        More</a>
+                       class="mt-4 bg-primary text-white px-8 py-4 rounded-xl w-fit hover:bg-primary-hover hover:shadow-lg transition-all duration-300 font-bold">
+                        Discover More
+                    </a>
                 </div>
             </div>
         @empty
-            <p>No products data yet.</p>
+            <p class="text-center text-text-muted">No products available.</p>
         @endforelse
     </div>
 
-    <div id="Testimonials" class="w-full flex flex-col gap-[50px] items-center mt-20">
-        <div class="flex flex-col gap-[14px] items-center" data-aos="fade-up">
-            <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                SUCCESS CLIENTS</p>
-            <h2 class="font-bold text-4xl leading-[45px] text-center">Reviews</h2>
-        </div>
-        <div class="main-carousel w-full" data-aos="fade-up" data-aos-delay="200">
-            @forelse($testimonials as $testimonial)
-                <div
-                    class="carousel-card container max-w-[1130px] w-full flex flex-wrap justify-between items-center lg:mx-[calc((100vw-1130px)/2)]">
-                    <div class="testimonial-container flex flex-col gap-[112px] w-[565px]">
-                        <div class="flex flex-col gap-[30px]">
-                            <div class="relative pt-[27px] pl-[30px]">
-                                <div class="absolute top-0 left-0">
-                                    <img src="{{asset('assets/icons/quote.svg')}}" alt="icon">
+    <!-- Testimonials Section -->
+    <div id="Testimonials" class="bg-surface-secondary py-24 mt-12 w-full">
+        <div class="container flex flex-col items-center gap-12">
+            <div class="text-center space-y-4" data-aos="fade-up">
+                <span class="text-secondary font-bold tracking-wider uppercase text-sm">Success Clients</span>
+                <h2 class="font-bold text-4xl text-primary">What Our Clients Say</h2>
+            </div>
+
+            <div class="main-carousel w-full max-w-5xl" data-aos="fade-up" data-aos-delay="200">
+                @forelse($testimonials as $testimonial)
+                    <div class="carousel-card w-full flex flex-col md:flex-row items-center gap-10 md:gap-16 px-4">
+                        <div class="w-full md:w-1/2 space-y-8">
+                             <div class="relative">
+                                <img src="{{asset('assets/icons/quote.svg')}}" class="absolute -top-6 -left-6 w-12 opacity-20" alt="quote">
+                                <p class="font-medium text-2xl leading-relaxed text-primary relative z-10">
+                                    "{{$testimonial->message}}"
+                                </p>
+                             </div>
+                             
+                             <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-md">
+                                    <img src="{{Storage::url($testimonial->client->avatar)}}" class="w-full h-full object-cover" alt="{{$testimonial->client->name}}">
                                 </div>
-                                <p class="font-semibold text-2xl leading-[46px] relative z-10">{{$testimonial->message}}</p>
-                            </div>
-                            <div class="flex items-center justify-between pl-[30px]">
-                                <div class="flex items-center gap-6">
-                                    <div class="w-[60px] h-[60px] flex shrink-0 rounded-full overflow-hidden">
-                                        <img src="{{Storage::url($testimonial->client->avatar)}}"
-                                             class="w-full h-full object-cover"
-                                             alt="photo">
-                                    </div>
-                                    <div class="flex flex-col justify-center gap-1">
-                                        <p class="font-bold">{{$testimonial->client->name}}</p>
-                                        <p class="text-sm text-cp-light-grey">{{$testimonial->client->occupation}}</p>
-                                    </div>
+                                <div>
+                                    <p class="font-bold text-lg text-primary">{{$testimonial->client->name}}</p>
+                                    <p class="text-text-muted text-sm">{{$testimonial->client->occupation}}</p>
                                 </div>
-                                <div class="flex flex-nowrap">
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/Star-rating.svg')}}" alt="star">
-                                    </div>
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/Star-rating.svg')}}" alt="star">
-                                    </div>
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/Star-rating.svg')}}" alt="star">
-                                    </div>
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/Star-rating.svg')}}" alt="star">
-                                    </div>
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/Star-rating.svg')}}" alt="star">
-                                    </div>
+                                <div class="flex text-yellow-400 gap-1 ml-auto">
+                                    @for($i = 0; $i < 5; $i++)
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    @endfor
                                 </div>
-                            </div>
+                             </div>
                         </div>
-                        <div class="carousel-indicator flex items-center justify-center gap-2 h-4 shrink-0">
+                        <div class="w-full md:w-1/2 aspect-[4/5] md:aspect-square bg-gray-200 rounded-3xl overflow-hidden shadow-2xl">
+                             <img src="{{Storage::url($testimonial->thumbnail)}}" class="w-full h-full object-cover" alt="Testimonial thumbnail">
                         </div>
                     </div>
-                    <div class="testimonial-thumbnail w-[470px] h-[550px] overflow-hidden bg-[#D9D9D9]">
-                        <img src="{{Storage::url($testimonial->thumbnail)}}"
-                             class="w-full h-full object-cover object-center"
-                             alt="thumbnail">
-                    </div>
-                </div>
-            @empty
-                <p>No testimonials data yet.</p>
-            @endforelse
+                @empty
+                    <p class="text-center w-full">No testimonials yet.</p>
+                @endforelse
+            </div>
         </div>
     </div>
+
     <x-footer/>
 
+    <!-- Video Modal -->
     <div id="video-modal" tabindex="-1" aria-hidden="true"
-         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full lg:w-1/2 max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white overflow-hidden shadow">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                    <h3 class="text-xl font-semibold text-cp-black">
+         class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-[60] justify-center items-center w-full h-full bg-black/80 backdrop-blur-sm">
+        <div class="relative p-4 w-full max-w-4xl max-h-full">
+            <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="flex items-center justify-between p-4 border-b border-surface-border">
+                    <h3 class="text-xl font-bold text-primary">
                         Company Profile Video
                     </h3>
                     <button type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                            class="text-gray-400 bg-transparent hover:bg-gray-100 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center transition-colors"
                             onclick="{modal.hide()}">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                              viewBox="0 0 14 14">
@@ -293,14 +231,12 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                 </div>
-                <!-- Modal body -->
-                <div class="">
-                    <!-- video src added from the js script (modal-video.js) to prevent video running in the backgroud -->
-                    <iframe id="videoFrame" class="aspect-[16/9]" width="100%" src=""
-                            title="Demo Project Laravel Portfolio"
+                <div class="aspect-video w-full bg-black">
+                    <iframe id="videoFrame" class="w-full h-full" src=""
+                            title="Company Profile"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -326,10 +262,9 @@
             duration: 800,
             easing: 'ease-in-out',
             once: true,
-            offset: 100
+            offset: 50
         });
     </script>
-
     <script src="{{asset('js/carousel.js')}}"></script>
     <script src="{{asset('js/accordion.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

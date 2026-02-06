@@ -1,67 +1,70 @@
-<footer class="bg-cp-black w-full relative overflow-hidden mt-20">
-    <div
-        class="container max-w-[1130px] mx-auto flex flex-wrap gap-y-4 items-center justify-between pt-[100px] pb-[220px] relative z-10"
-    >
-        <!-- Left Section: Logo & Motto -->
-        <div class="flex flex-col gap-10">
-            <div class="flex items-center gap-3">
-                <div class="flex shrink-0 h-[43px] overflow-hidden">
-                    <img
-                        src="{{asset('assets/logo/logo-white.png')}}"
-                        class="object-contain w-full h-full"
-                        alt="logo"
-                    />
+<footer class="bg-primary text-white w-full relative overflow-hidden mt-20 pb-10">
+    <!-- Background Watermark -->
+    <div class="absolute -bottom-24 w-full select-none pointer-events-none z-0">
+        <p class="font-black text-[12vw] leading-none text-center text-white opacity-[0.03]">MAGANA</p>
+    </div>
+
+    <div class="container relative z-10 pt-20 pb-10">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            <!-- Left Section: Logo & Motto -->
+            <div class="flex flex-col gap-6 max-w-sm">
+                <div class="h-12 w-auto overflow-hidden">
+                    <img src="{{asset('assets/logo/logo-white.png')}}" class="object-contain h-full" alt="logo" />
+                </div>
+                <p class="text-slate-400 leading-relaxed">
+                    Delivering Indonesia’s natural and creative products worldwide with quality and sustainability.
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex items-center gap-4 mt-2">
+                    <a href="#" target="_blank" aria-label="YouTube"
+                        class="bg-white/10 p-2 rounded-full hover:bg-secondary hover:text-white transition-all duration-300 group">
+                        <img src="{{asset('assets/icons/youtube.svg')}}"
+                            class="w-5 h-5 group-hover:brightness-0 group-hover:invert transition-all" alt="youtube" />
+                    </a>
+                    <a href="https://wa.me/62xxxxxxxxxx" target="_blank" aria-label="WhatsApp"
+                        class="bg-white/10 p-2 rounded-full hover:bg-secondary hover:text-white transition-all duration-300 group">
+                        <img src="{{asset('assets/icons/whatsapp.svg')}}"
+                            class="w-5 h-5 group-hover:brightness-0 group-hover:invert transition-all" alt="whatsapp" />
+                    </a>
+                    <a href="#" target="_blank" aria-label="Facebook"
+                        class="bg-white/10 p-2 rounded-full hover:bg-secondary hover:text-white transition-all duration-300 group">
+                        <img src="{{asset('assets/icons/facebook.svg')}}"
+                            class="w-5 h-5 group-hover:brightness-0 group-hover:invert transition-all" alt="facebook" />
+                    </a>
+                    <a href="#" target="_blank" aria-label="Instagram"
+                        class="bg-white/10 p-2 rounded-full hover:bg-secondary hover:text-white transition-all duration-300 group">
+                        <img src="{{asset('assets/icons/instagram.svg')}}"
+                            class="w-5 h-5 group-hover:brightness-0 group-hover:invert transition-all"
+                            alt="instagram" />
+                    </a>
                 </div>
             </div>
 
-        </div>
-
-        <!-- Right Section: Navigation -->
-        <div class="flex flex-wrap gap-[50px]">
-            <!-- Social Links -->
-            <div class="flex items-center gap-4">
-                <a href="#" target="_blank" aria-label="YouTube">
-                    <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                        <img
-                            src="{{asset('assets/icons/youtube.svg')}}"
-                            class="w-full h-full object-contain"
-                            alt="youtube"
-                        />
-                    </div>
-                </a>
-                <a href="https://wa.me/62xxxxxxxxxx" target="_blank" aria-label="WhatsApp">
-                    <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                        <img
-                            src="{{asset('assets/icons/whatsapp.svg')}}"
-                            class="w-full h-full object-contain"
-                            alt="whatsapp"
-                        />
-                    </div>
-                </a>
-                <a href="#" target="_blank" aria-label="Facebook">
-                    <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                        <img
-                            src="{{asset('assets/icons/facebook.svg')}}"
-                            class="w-full h-full object-contain"
-                            alt="facebook"
-                        />
-                    </div>
-                </a>
-                <a href="#" target="_blank" aria-label="Instagram">
-                    <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                        <img
-                            src="{{asset('assets/icons/instagram.svg')}}"
-                            class="w-full h-full object-contain"
-                            alt="instagram"
-                        />
-                    </div>
-                </a>
+            <!-- Right Section: Links (Example) -->
+            <div class="grid grid-cols-2 gap-10 sm:gap-16">
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-bold text-lg text-white">Company</h3>
+                    <a href="{{route('front.about')}}"
+                        class="text-slate-400 hover:text-secondary transition-colors">About Us</a>
+                    <a href="{{route('front.team')}}" class="text-slate-400 hover:text-secondary transition-colors">Our
+                        Team</a>
+                    <a href="{{route('front.product')}}"
+                        class="text-slate-400 hover:text-secondary transition-colors">Products</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-bold text-lg text-white">Support</h3>
+                    <a href="{{route('front.faq')}}"
+                        class="text-slate-400 hover:text-secondary transition-colors">FAQ</a>
+                    <a href="{{route('front.appointment')}}"
+                        class="text-slate-400 hover:text-secondary transition-colors">Contact Us</a>
+                    <a href="#" class="text-slate-400 hover:text-secondary transition-colors">Privacy Policy</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Background Watermark -->
-    <div class="absolute -bottom-[135px] w-full">
-        <p class="font-extrabold text-[250px] leading-[375px] text-center text-white opacity-5">MAGANA</p>
+        <div class="border-t border-white/10 mt-16 pt-8 text-center text-slate-500 text-sm">
+            &copy; {{ date('Y') }} PT. Magana Dana Mahanta. All rights reserved.
+        </div>
     </div>
 </footer>

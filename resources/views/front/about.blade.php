@@ -2,62 +2,70 @@
 @extends('front.layouts.app')
 
 @section('content')
-    <div id="header" class="bg-[#F6F7FA] relative">
-        <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
-            <x-navbar/>
-            <div class="flex flex-col gap-[50px] items-center py-20">
-                <div class="breadcrumb flex items-center justify-center gap-[30px]" data-aos="fade-down">
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Home</p>
-                    <span class="text-cp-light-grey">/</span>
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">About Us</p>
+    <div id="header" class="relative bg-surface-secondary overflow-hidden pt-10 pb-32">
+        <div class="container relative z-10">
+            <x-navbar />
+        </div>
+    </div>
+
+    <div id="Contents" class="container relative z-20 -mt-20">
+        <div class="flex flex-col gap-12 items-center">
+            <div class="flex flex-col gap-4 items-center text-center">
+                <div class="breadcrumb flex items-center justify-center gap-3 text-sm" data-aos="fade-down">
+                    <a href="{{ route('front.index') }}"
+                        class="text-text-muted hover:text-primary transition-colors">Home</a>
+                    <span class="text-text-muted">/</span>
+                    <span class="text-primary font-semibold">About Us</span>
                 </div>
-                <h2 class="font-bold text-4xl leading-[45px] text-center" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="font-black text-4xl leading-tight text-primary max-w-2xl" data-aos="fade-up"
+                    data-aos-delay="100">
                     Since Beginning We Only <br> Want to Make World Better
-                </h2>
+                </h1>
+            </div>
+
+            <div class="flex flex-col gap-20 mt-10 w-full">
+                @forelse($abouts as $index => $about)
+                    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 even:lg:flex-row-reverse group">
+                        <div class="w-full lg:w-5/12 aspect-[4/5] rounded-3xl overflow-hidden shadow-card border-4 border-white transform transition-transform duration-500 group-hover:scale-[1.02]"
+                            data-aos="{{ $index % 2 == 0 ? 'fade-right' : 'fade-left' }}">
+                            <img src="{{Storage::url($about->thumbnail)}}" class="w-full h-full object-cover"
+                                alt="{{$about->name}}">
+                        </div>
+                        <div class="w-full lg:w-6/12 flex flex-col gap-6"
+                            data-aos="{{ $index % 2 == 0 ? 'fade-left' : 'fade-right' }}" data-aos-delay="100">
+
+                            <span
+                                class="inline-block py-2 px-4 rounded-full bg-accent/10 text-accent font-bold text-sm tracking-wider uppercase w-fit">
+                                OUR {{$about->type}}
+                            </span>
+
+                            <h2 class="font-bold text-4xl text-primary leading-tight">{{$about->name}}</h2>
+
+                            <div class="flex flex-col gap-4">
+                                @forelse($about->keypoints as $kIndex => $keypoint)
+                                    <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-secondary transition-colors duration-300"
+                                        data-aos="fade-up" data-aos-delay="{{ ($kIndex * 100) + 200 }}">
+                                        <div class="w-6 h-6 flex shrink-0 text-secondary mt-1">
+                                            <img src="{{asset('assets/icons/tick-circle.svg')}}" class="w-full h-full" alt="icon">
+                                        </div>
+                                        <p class="leading-relaxed text-text-main font-medium">{{$keypoint->keypoint}}</p>
+                                    </div>
+                                @empty
+                                    <p class="text-text-muted">No keypoints available.</p>
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-center w-full text-text-muted">No about data yet.</p>
+                @endforelse
             </div>
         </div>
     </div>
-    <div id="Products" class="container max-w-[1130px] mx-auto flex flex-col gap-20 mt-20">
-        @forelse($abouts as $index => $about)
-            <div class="product flex flex-wrap justify-center items-center gap-[60px] even:flex-row-reverse">
-                <div class="w-[470px] h-[520px] flex shrink-0 overflow-hidden"
-                     data-aos="{{ $index % 2 == 0 ? 'fade-right' : 'fade-left' }}">
-                    <img src="{{Storage::url($about->thumbnail)}}"
-                         class="w-full h-full object-contain"
-                         alt="thumbnail">
-                </div>
-                <div class="flex flex-col gap-[30px] py-[10px] h-fit max-w-[500px]"
-                     data-aos="{{ $index % 2 == 0 ? 'fade-left' : 'fade-right' }}" data-aos-delay="100">
-                    <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">
-                        OUR {{$about->type}}</p>
-                    <div class="flex flex-col gap-[10px]">
-                        <h2 class="font-bold text-4xl leading-[45px]">{{$about->name}}</h2>
-                        <div class="flex flex-col gap-5">
-                            @forelse($about->keypoints as $kIndex => $keypoint)
-                                <div class="flex items-center gap-[10px]" data-aos="fade-up"
-                                     data-aos-delay="{{ ($kIndex * 100) + 200 }}">
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/tick-circle.svg')}}" alt="icon">
-                                    </div>
-                                    <p class="leading-[26px] font-semibold">{{$keypoint->keypoint}}</p>
-                                </div>
-                            @empty
-                                <div class="flex items-center gap-[10px]">
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="{{asset('assets/icons/tick-circle.svg')}}" alt="icon">
-                                    </div>
-                                    <p class="leading-[26px] font-semibold">No keypoints available</p>
-                                </div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @empty
-            <p>No about data yet.</p>
-        @endforelse
-    </div>
-    <x-footer/>
+
+    <div class="pb-20"></div> {{-- Spacer --}}
+
+    <x-footer />
 @endsection
 
 @push('after-styles')

@@ -2,56 +2,59 @@
 @extends('front.layouts.app')
 
 @section('content')
-    <div id="header" class="bg-[#F6F7FA] relative h-[600px] -mb-[388px]">
-        <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
-            <x-navbar/>
+    <div id="header" class="relative bg-surface-secondary overflow-hidden pt-10 pb-32">
+        <div class="container relative z-10">
+            <x-navbar />
         </div>
     </div>
-    <div id="Teams" class="w-full px-[10px] relative z-10">
-        <div class="container max-w-[1130px] mx-auto flex flex-col gap-[50px] items-center">
-            <div class="flex flex-col gap-[50px] items-center">
-                <div class="breadcrumb flex items-center justify-center gap-[30px]" data-aos="fade-down">
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Home</p>
-                    <span class="text-cp-light-grey">/</span>
-                    <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Our Team</p>
+
+    <div id="Teams" class="container -mt-20 relative z-20">
+        <div class="flex flex-col gap-12 items-center">
+            <div class="flex flex-col gap-4 items-center text-center">
+                <div class="breadcrumb flex items-center justify-center gap-3 text-sm" data-aos="fade-down">
+                    <a href="{{ route('front.index') }}"
+                        class="text-text-muted hover:text-primary transition-colors">Home</a>
+                    <span class="text-text-muted">/</span>
+                    <span class="text-primary font-semibold">Our Team</span>
                 </div>
-                <h2 class="font-bold text-4xl leading-[45px] text-center" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="font-black text-4xl leading-tight text-primary max-w-2xl" data-aos="fade-up"
+                    data-aos-delay="100">
                     We're Here to Build <br> Your Awesome Projects
-                </h2>
+                </h1>
             </div>
 
-            <div
-                class="teams-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full justify-center">
                 @forelse($teams as $index => $team)
-                    <div
-                        class="card bg-white flex flex-col h-full justify-center items-center p-[30px] px-[29px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300"
-                        data-aos="zoom-in" data-aos-delay="{{ ($index * 100) + 100 }}">
+                    <div class="group bg-white flex flex-col items-center p-8 rounded-3xl border border-surface-border shadow-soft hover:shadow-card hover:-translate-y-2 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="{{ ($index * 100) + 100 }}">
                         <div
-                            class="w-[100px] h-[100px] flex shrink-0 items-center justify-center rounded-full bg-[linear-gradient(150.55deg,_#007AFF_8.72%,_#312ECB_87.11%)]">
-                            <div class="w-[90px] h-[90px] rounded-full overflow-hidden">
-                                <img src="{{Storage::url($team->avatar)}}"
-                                     class="object-cover w-full h-full object-center"
-                                     alt="photo">
+                            class="w-28 h-28 flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent to-primary p-1 mb-6 group-hover:scale-105 transition-transform duration-300">
+                            <div class="w-full h-full rounded-full overflow-hidden border-2 border-white">
+                                <img src="{{Storage::url($team->avatar)}}" class="object-cover w-full h-full object-center"
+                                    alt="{{$team->name}}">
                             </div>
                         </div>
-                        <div class="flex flex-col gap-1 text-center">
-                            <p class="font-bold text-xl leading-[30px]">{{$team->name}}</p>
-                            <p class="text-cp-light-grey">{{$team->occupation}}</p>
+                        <div class="flex flex-col gap-1 text-center mb-4">
+                            <h3 class="font-bold text-xl text-primary">{{$team->name}}</h3>
+                            <p class="text-text-muted text-sm font-medium">{{$team->occupation}}</p>
                         </div>
-                        <div class="flex items-center justify-center gap-[10px]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="{{asset('assets/icons/global.svg')}}" alt="icon">
+                        <div class="flex items-center justify-center gap-2 mt-auto">
+                            <div class="w-5 h-5 flex shrink-0 text-secondary">
+                                <img src="{{asset('assets/icons/global.svg')}}" class="w-full h-full" alt="icon">
                             </div>
-                            <p class="text-cp-dark-blue font-semibold">{{$team->location}}</p>
+                            <p class="text-primary font-semibold text-sm">{{$team->location}}</p>
                         </div>
                     </div>
                 @empty
-                    <p>No team data yet.</p>
+                    <p class="text-center w-full text-text-muted col-span-full">No team data yet.</p>
                 @endforelse
             </div>
         </div>
     </div>
-    <x-footer/>
+
+    <div class="pb-20"></div> {{-- Spacer --}}
+
+    <x-footer />
 @endsection
 
 @push('after-styles')
